@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+
+*{
+    font-family: 'Poppins',sans-serif;
+    margin-left: 24px;
+    margin-right: 24px;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* background: url(../images/backgroundHome.png) no-repeat center top;
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+    overflow: auto;  */
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.navbar-left .logo {
+    width: 100px;
+    height: 80px;
+    padding: 16px;
+}
+
+.navbar-center a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.navbar-center a:hover {
+    font-weight: 600;
+    /* background-color: rgba(255, 255, 255, 0.2); */
+}
+
+.navbar-right .login-btn {
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.navbar-right .login-btn:hover {
+    background-color: #ffffffd3;
+}
+
+.navbar-center a:hover {
+    color: white;
+    
+}
+
+/* .isi{
+    color: white;
+    align-items: center;
+    
+}
+.isi-welcome{
+    font-size: 36px;
+    font-weight: 300;
+}
+.isi-club{
+    font-size: 72px;
+    font-weight: 900;
+} */
