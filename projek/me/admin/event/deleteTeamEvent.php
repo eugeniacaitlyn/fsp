@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Achievement</title>
+    <title>Delete Event</title>
 </head>
 
 <body>
@@ -15,14 +15,17 @@
         echo "Koneksi Failed: " . $koneksi->connect_error;
     }
 
-    $idachievement = $_GET['id'];
+    $idevent = $_GET['idevent'];
+    $idteam = $_GET['idteam'];
+    $return_url = $_GET['return_url'];
 
-    $sql = "DELETE FROM achievement WHERE idachievement =?";
+    $sql = "DELETE FROM event_teams WHERE idevent=? and idteam=?";
     $stmt = $koneksi->prepare($sql);
-    $stmt->bind_param("i", $idachievement);
+    $stmt->bind_param("ii", $idevent, $idteam);
     $stmt->execute();
     $koneksi->close();
-    header("Location: achievement.php");
+    header("Location: $return_url");
+    exit();
     ?>
 
 </body>

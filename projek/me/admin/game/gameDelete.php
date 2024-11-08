@@ -6,12 +6,12 @@
     }
 
     $idgame = $_GET['id'];
-    $sql = "DELETE FROM capstone.game WHERE idgame=?;";
+    $sql = "DELETE FROM game WHERE idgame=?;";
     $stmt = $koneksi->prepare($sql);
     $stmt->bind_param('i', $idgame);
     $stmt->execute();
 
-    header("Location: game.php");
+    header("Location: /fsp/projek/me/admin/game/game.php");
     $koneksi ->close();
 ?>
 <br>

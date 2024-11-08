@@ -90,7 +90,11 @@
                 <p>Welcome, <?php echo $fullName; ?>!</p>
             </div>
             <div class="isi register-link">
-                <p>Want to join a Team? <a href="proposal.php?idmember=<?php echo $idmember; ?>">!Click here!</a></p>
+                <p>Want to join a Team? <a href="proposal.php?idmember=<?php echo $idmember; ?>">Click here!</a></p>
+            </div>
+
+            <div class="isi register-link">
+                <p>Check Your Team Proposals <a href="proposal-result.php?idmember=<?php echo $idmember; ?>">Click here!</a></p>
             </div>
 
             <div class="isi register-link">

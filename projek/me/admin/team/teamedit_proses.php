@@ -18,7 +18,8 @@
             echo "Edit Failed.";
         }
     }
+    header("Location: /fsp/projek/me/admin/team/team.php");
+
     $koneksi ->close();
 ?>
 <br>
-<a href="teamselect.php">Back To All Teams</a>

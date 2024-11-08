@@ -11,7 +11,8 @@
         include($_SERVER['DOCUMENT_ROOT'].'/fsp/projek/me/admin/aside.php');
         $koneksi = new mysqli("localhost", "root", "", "capstone");
     ?>
-    <div class="team-insert">
+    <div class="main">
+        <div class="team-insert">
         <form method="POST" enctype="multipart/form-data" action="teaminsert_proses.php">
             <label>Game: </label>
             <?php
@@ -35,7 +36,8 @@
             <input type="submit" name="submit" value="Add Team"><br><br>
         </form>
         <br>
-        <a href="/fsp/projek/me/admin/team/team.php">Back to Home</a>
     </div>
+    </div>
+    
 </body>
 </html>

@@ -14,24 +14,27 @@
         }
 
         if(isset($_POST['submit'])){
-            $idteam = $_POST["idteam"];
-            $name = $_POST["event"];
+            $team = $_POST['team'];
+            $name = $_POST["name"];
             $date = $_POST["date"];
             $description = $_POST["description"];
     
-            $sql = "INSERT INTO achievement (idteam, name, date, description) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO achievement (idteam, name,date, description) VALUES ((select idteam from team where name = ?),?,?,?)";
             $stmt = $koneksi->prepare($sql);
-            $stmt->bind_param("isss",$idteam, $name,$date,$description);
+            $stmt->bind_param("ssss", $team,$name,$date,$description);
             $stmt->execute();
     
             if ($stmt) {
-                header("Location: achivement.php");
+                header("Location: achievement.php");
                 echo "Add Success.";
             }
             else {
                 echo "Add Failed.";
                 
             }
+
+            $koneksi->close();
+
         }
     ?>
 </body>

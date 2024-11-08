@@ -1,37 +1,15 @@
 <?php
-    @include 'database.php';
-    session_start();
+@include 'database.php';
+session_start();
 
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+require 'cLogin.php';
 
-    $error = ''; 
-
-    if(isset($_POST['submit'])){
-        $username = mysqli_real_escape_string($conn, $_POST['username']);
-        $pass = md5($_POST['password']);
-
-        $select = "SELECT * FROM member WHERE username = '$username' && password = '$pass' ";
-        $result = mysqli_query($conn, $select);
-
-        if(mysqli_num_rows($result) > 0){
-
-            $row = mysqli_fetch_array($result);
-            if($row['profile'] == 'admin'){
-                $_SESSION['username'] = $row['username'];
-                header('location:admin/home.php');
-                exit();
-            } elseif($row['profile'] == 'member'){
-                $_SESSION['username'] = $row['username'];
-                //echo "Redirecting to: user/home.php";
-                header('location:user/home.php');
-                exit(); 
-            }
-            
-        } else {
-            $error = 'Username atau Password salah. Silakan coba lagi.';
-        }
-    }
+$error = '';
+if (isset($_POST['submit'])) {
+    $login = new cLogin($conn);
+    $login->login($_POST['username'], $_POST['password']);
+    $error = $login->error;
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +27,7 @@
             <h1>Login</h1>
 
             <div class="column input-box">
-                <input type="username" name="username" required placeholder="Username">
+                <input type="text" name="username" required placeholder="Username">
                 <i class='bx bxs-user'></i>
             </div>
             <div class="column input-box">
@@ -58,7 +36,7 @@
             </div>
             <div class="button">
                 <button type="submit" name="submit" value="Login Now" class="btn-submit">Login</button>
-                <button type="back" class="btn-back" onclick= "window.location.href='main.php'">Back</button>
+                <button type="button" class="btn-back" onclick="window.location.href='main.php'">Back</button>
             </div> 
             <div class="register-link">
                 <p>Don't have an account? <a href="register.php">Register</a></p>
@@ -68,7 +46,7 @@
 
     <script>
         <?php if (!empty($error)): ?>
-            alert('<?php echo $error; ?>'); 
+            alert('<?php echo $error; ?>');
         <?php endif; ?>
     </script>
 </body>

@@ -13,7 +13,7 @@
     else{
         echo "Delete Gagal.";
     }
+    header("Location: /fsp/projek/me/admin/team/team.php");
     $koneksi ->close();
 ?>
 <br>
-<a href="teamselect.php">back to index</a>

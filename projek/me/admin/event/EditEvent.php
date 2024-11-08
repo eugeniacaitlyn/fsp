@@ -25,7 +25,7 @@
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #D59966;
         }
 
         .grid-item table {
@@ -35,6 +35,7 @@
 </head>
 <body>
     <?php
+            include($_SERVER['DOCUMENT_ROOT'].'/fsp/projek/me/admin/aside.php');
         $koneksi = new mysqli("localhost", "root", "", "capstone");
 
         if ($koneksi->connect_errno) {
@@ -61,19 +62,25 @@
 
         $koneksi->close();
     ?>
-    <form method="POST" action="editEventProses.php">
-        <label>Name</label>
-        <input type="text" name="name" value="<?=$name?>"> <br>
+
+    <div class="main">
+        <form method="POST" action="editEventProses.php">
+            <label>Name</label>
+            <input type="text" name="name" value="<?=$name?>"> <br>
+            
+            <label for="date">Event Date:</label>
+            <input type="date" name="date" value="<?=$date?>"> <br>
+
+            <label>Description</label>
+            <textarea name="description" rows="5" cols="50"><?=$description?></textarea><br>
+
+            <input type="hidden" name="idevent" value="<?=$idevent?>">
+            <input type="submit" name="submit" value="Edit"><br><br>
+        </form>
+
         
-        <label for="date">Event Date:</label>
-        <input type="date" name="date" value="<?=$date?>"> <br>
-
-        <label>Description</label>
-        <textarea name="description" rows="5" cols="50"><?=$description?></textarea><br>
-
-        <input type="hidden" name="idevent" value="<?=$idevent?>">
-        <input type="submit" name="submit" value="Edit"><br><br>
-    </form>
+    </div>
+    
 
     <div class="grid-container">
         <div class="grid-item">
@@ -104,7 +111,9 @@
 
                         $idevent = $row['idevent'];
                         $idteam = $row['idteam'];
-                        echo "<td><a href='deleteTeamEvent.php?idevent=$idevent&idteam=$idteam&return_url=EditEvent.php?id=$idevent' onclick='return confirm(\"Apakah Anda yakin ingin menghapus team ini?\")'>Hapus</a></td>";
+                        $current_url = $_SERVER['REQUEST_URI']; 
+                        echo "<td><a href='deleteTeamEvent.php?idevent=$idevent&idteam=$idteam&return_url={$current_url}' onclick='return confirm(\"Apakah Anda yakin ingin menambahkan team ini?\")'>Hapus</a></td>";
+
                         echo "</tr>";
                     }
                 } else {

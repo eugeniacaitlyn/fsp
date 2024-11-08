@@ -18,7 +18,7 @@
             echo "Edit Failed.";
         }
     }
+    header("Location: /fsp/projek/me/admin/game/game.php");
     $koneksi ->close();
 ?>
 <br>
-<a href="gameselect.php">Back To All Games</a>

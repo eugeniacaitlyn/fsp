@@ -13,7 +13,7 @@
         echo "Reject Proposal Succeeded";
         $stmt2->close();
         }
+        header("Location: /fsp/projek/me/admin/proposal/proposal.php");
     $koneksi ->close();
 ?>
 <br>
-<a href="teamselect.php">Back to All Teams</a>

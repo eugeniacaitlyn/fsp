@@ -100,7 +100,7 @@
             else if (itemHref.includes('/event/') && currentPage.includes('/event/')) {
                 item.parentElement.classList.add('active'); // Tambahkan kelas 'active' pada item yang sesuai
             }
-            else if (itemHref.includes('/Achievement/') && currentPage.includes('/Achievement/')) {
+            else if (itemHref.includes('/achievement/') && currentPage.includes('/achievement/')) {
                 item.parentElement.classList.add('active'); // Tambahkan kelas 'active' pada item yang sesuai
             }
             else if (itemHref.includes('/home') && currentPage.includes('/home')) {

@@ -17,7 +17,7 @@
         $stmt->execute();
 
         if ($stmt) {
-            header("Location: achivement.php");
+            header("Location: achievement.php");
             echo "Edit Success.";
         }
         else {

@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Game</title>
+    <title>Game</title>
+    <link rel="stylesheet" href="/fsp/projek/me/css/bodyAdmin.css">
 </head>
 <body>
     <?php
+        include($_SERVER['DOCUMENT_ROOT'].'/fsp/projek/me/admin/aside.php');
         $koneksi = new mysqli("localhost", "root", "", "capstone");
 
         $sql = "select * from game where idgame=?";
@@ -27,16 +29,16 @@
         }
         $koneksi->close();
     ?>
-
-    <form method="POST" action="gameedit_proses.php">
-        <label>Game Name</label>
-        <input type="text" name="gamename" value="<?=$gamename?>"> <br>
-        
-        <label>Game Description</label>
-        <textarea name="gamedesc" value="<?=$gamedesc?>"><?= htmlspecialchars($gamedesc) ?></textarea><br>
-        
-        <input type="hidden" name="idgame" value="<?=$idgame?>">
-        <input type="submit" name="submit" value="Edit Game"><br><br>
-    </form>
+    <div class="main">
+        <form method="POST" action="gameedit_proses.php">
+            <label>Game Name</label>
+            <input type="text" name="gamename" value="<?=$gamename?>"> <br>
+            
+            <label>Game Description</label>
+            <textarea name="gamedesc" value="<?=$gamedesc?>" rows="5" cols="25"><?= htmlspecialchars($gamedesc) ?></textarea><br>
+            
+            <input type="hidden" name="idgame" value="<?=$idgame?>">
+            <input type="submit" name="submit" value="Edit Game"><br><br>
+        </form>
+    </div>
 </body>
-</html>
